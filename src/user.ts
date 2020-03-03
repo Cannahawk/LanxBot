@@ -33,7 +33,15 @@ export class User {
   }
 
   SkipTurn(): void {
+    this.isLanxed = false;
+  }
+
+  Stuck(): void {
     this.isSkipping = true;
+  }
+
+  UnStuck(): void {
+    this.isSkipping = false;
   }
 
   IsWaitingForLanx(): boolean {
@@ -47,10 +55,10 @@ export class User {
 
     return true;
     /*
-    l s w
+    s l w
     0 0 1
-    0 1 1
-    1 0 0
+    0 1 0
+    1 0 1
     1 1 1
     */
   }

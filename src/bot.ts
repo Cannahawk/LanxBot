@@ -1,6 +1,6 @@
-import { User } from "./user";
+import { User } from './user';
 import Discord from 'discord.js'
-import { Parser } from "./parser";
+import { Parser } from './parser';
 
 export class Bot {
   users: User[];

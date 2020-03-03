@@ -5,7 +5,7 @@
   "main": "main.js",
   "author": "Gamoogisz",
   "dependencies": {
-    "@types/node": "^10.12.18",
+    "@types/node": "^10.17.17",
     "discord.js": "^11.4.2",
     "reflect-metadata": "^0.1.13"
   }
