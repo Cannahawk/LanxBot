@@ -9,7 +9,6 @@ export class SetCd extends Command {
     super(bot, message);
   }
 
-
   Execute(): void {
     let cd = +this.argument;
     if(isNaN(cd) || (this.argument === null)) {
