@@ -36,8 +36,8 @@ The Bot will be running and listen to inputs.
 the BotConfig.json has a few options:  
 **prefix**: change the prefix used for every command(e.g. !help becomes $help instead)  
 **maxUsers**: the maximal amount of users to be registered at once  
-**statusMessage**: simply the activity of the bot that will be displayed in the member list  
-**status**: options are only "WATCHING", "PLAYING", "STREAMING", "LISTENING". Anything else will crash the bot on startup. Sets the activity type for the status message  
+**statusMessage**: simply the activity of the bot that will be displayed in the member list. Set to null to not display any.
+**status**: options are only null, "WATCHING", "PLAYING", "STREAMING", "LISTENING". Anything else will crash the bot on startup. Sets the activity type for the status message. Set to null to not display any.
   
 to change the names of the bot commands or their description with the help command, edit the src/commandList.ts file  
 The commands name is represented by their key, change them as you like.  
