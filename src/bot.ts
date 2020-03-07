@@ -11,7 +11,7 @@ export class Bot {
     this.pool = '';
   }
 
-  parseMessage(message: Discord.Message) {
+  parseMessage(message: Discord.Message): void {
     new Parser(this, message);
   }
 }

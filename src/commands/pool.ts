@@ -4,13 +4,13 @@ import { User } from '../user';
 import { Command } from './command';
 
 export class Pool extends Command {
-    
+
   constructor(bot: Bot, message: Discord.Message ) {
     super(bot, message);
   }
- 
+
   Execute(): void {
-    let summon = this.argument;
+    const summon = this.argument;
 
     if(summon && this.bot.pool) {
       this.bot.pool = '';

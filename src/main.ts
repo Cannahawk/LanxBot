@@ -1,28 +1,27 @@
 import Discord from 'discord.js'
 import { Bot } from './bot';
+import * as BotConfig from '../BotConfig.json';
 
-let client = new Discord.Client;
+const client = new Discord.Client();
 
-const settings = require("./BotConfig.json");
-
-client.login(settings.token);
-let bot = new Bot();
+client.login(BotConfig.token);
+const bot = new Bot();
 
 client.on('ready', () => {
-  client.user.setActivity('you die horribly', { type: 'WATCHING'})
-  console.log("online");
+  client.user.setActivity(BotConfig.statusMessage, <any>(BotConfig).status)
+  console.log('online');
 })
 
-client.on('message', (message) => { 
-  if(message.author.bot) { 
+client.on('message', (message) => {
+  if(message.author.bot) {
     return;
   }
 
-  if(!message.content.startsWith(settings.prefix)){
+  if(!message.content.startsWith(BotConfig.prefix)){
     return;
   }
 
-  message.content = message.content.substring(settings.prefix.length)
+  message.content = message.content.substring(BotConfig.prefix.length)
     .trim()
     .toLowerCase();
 

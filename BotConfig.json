@@ -1,0 +1,9 @@
+{
+  "token": "YOUR_TOKEN_HERE",
+  "prefix": "!",
+  "maxUsers": 6,
+  "statusMessage": "you die slightly less horribly",
+  "status": {
+    "type": "WATCHING"
+  }
+}

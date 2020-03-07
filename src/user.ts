@@ -48,19 +48,12 @@ export class User {
     if(this.isSkipping) {
       return true;
     }
-    
+
     if(this.isLanxed) {
       return false;
     }
 
     return true;
-    /*
-    s l w
-    0 0 1
-    0 1 0
-    1 0 1
-    1 1 1
-    */
   }
 
   Extend(): void {

@@ -10,7 +10,7 @@ export class SetCd extends Command {
   }
 
   Execute(): void {
-    let cd = +this.argument;
+    const cd = +this.argument;
     if(isNaN(cd) || (this.argument === null)) {
       this.Reply('"' + this.argument + '" is not a valid number');
     } else {

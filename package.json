@@ -6,7 +6,11 @@
   "author": "Gamoogisz",
   "dependencies": {
     "@types/node": "^10.17.17",
-    "discord.js": "^11.4.2",
+    "discord.js": "^11.6.1",
     "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.3"
   }
 }
