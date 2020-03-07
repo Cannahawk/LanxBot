@@ -3,7 +3,7 @@
 This is a discord bot. Its intended to help players coordinating Phalanxes for GBF raids, specifically Luci Hard.
 
 ## Setup
-download the latest version of nodejs [here] (https://nodejs.org/en/) and install it
+download the latest version of nodejs [here](https://nodejs.org/en/) and install it
 
 open a CLI and type the following while in the projects directory:
 `npm i` to install all dependencies
