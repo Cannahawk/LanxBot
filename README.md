@@ -40,7 +40,7 @@ the BotConfig.json has a few options:
 **status**: options are only "WATCHING", "PLAYING", "STREAMING", "LISTENING". Anything else will crash the bot on startup. Sets the activity type for the status message  
   
 to change the names of the bot commands or their description with the help command, edit the src/commandList.ts file  
-The the commands name is represented by their key, change them as you like.  
+The commands name is represented by their key, change them as you like.  
 Afterward you will have to run the `tsc` command again.  
 
 ## Basic Usage
