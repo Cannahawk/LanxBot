@@ -25,7 +25,7 @@ client.on('message', (message) => {
     .trim()
     .toLowerCase();
 
-  bot.parseMessage(message)
+  bot.ExecuteCommand(message)
 });
 
 

@@ -8,6 +8,7 @@ export class User {
     this.lanxCd = 0;
     this.isLanxed = false;
     this.isSkipping = false;
+    this.pingState = true;
   }
 
   readonly name: string;
@@ -15,6 +16,7 @@ export class User {
   lanxCd: number;
   isLanxed: boolean;
   isSkipping: boolean;
+  private pingState: boolean
 
   Lanx(): void {
     this.lanxCd = 5;
@@ -58,6 +60,14 @@ export class User {
 
   Extend(): void {
     this.lanxCd += 2;
+  }
+
+  togglePingState(): void {
+    this.pingState = !this.pingState;
+  }
+
+  getsPinged(): boolean {
+    return this.pingState;
   }
 
 }

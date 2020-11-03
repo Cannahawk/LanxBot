@@ -11,6 +11,6 @@ export class Unregister extends Command {
 
   Execute(): void {
     this.bot.users = this.bot.users.filter((user) => user.name !== this.message.author.username);
-    this.Reply('current users:\n' + this.getUsernames());
+    this.Reply('current users:\n' + this.GetUsernames());
   }
 }

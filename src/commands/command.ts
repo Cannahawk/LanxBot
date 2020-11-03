@@ -39,7 +39,7 @@ export class Command {
     this.message.channel.send(message);
   }
 
-  getUsernames(): string {
+  GetUsernames(): string {
     let userlist = '';
 
     this.bot.users.forEach(user => {
@@ -60,14 +60,26 @@ export class Command {
     } else {
       this.Reply('waiting for: ' + usersNotYetReady);
     }
+    let stuckUsers = '';
+    this.bot.users.forEach(user => {
+      stuckUsers += user.isSkipping ? user.name + ' ' : ''
+    });
+    if(stuckUsers) {
+      this.Reply('stuck: ' + stuckUsers);
+    }
   }
 
   GetNextLanxUser(): string {
     const nextUser = this.bot.users.find(user => user.lanxCd === 0);
     if(nextUser !== undefined) {
-      return 'Next Lanx from: ' + nextUser.name;
+      return 'Next Lanx from: ' + (nextUser.getsPinged() ? 
+        ('<@' + nextUser.id + '>') : nextUser.name);
     } else {
       return 'all lanxes on cd.';
     }
+  }
+
+  DeleteCallingMessage(): void {
+    this.message.delete();
   }
 }

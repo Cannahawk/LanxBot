@@ -16,7 +16,7 @@ export class Register extends Command {
         this.Reply('user already added.');
       } else {
         this.bot.users.push(new User(this.message));
-        this.Reply('current users: \n' + this.getUsernames());
+        this.Reply('current users: \n' + this.GetUsernames());
       }
     } else {
       this.Reply('failed to add user '
