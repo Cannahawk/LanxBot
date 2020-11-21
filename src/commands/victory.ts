@@ -1,7 +1,6 @@
 import { Bot } from '../bot';
 import Discord from 'discord.js';
 import { Command } from './command';
-import * as BotConfig from '../../BotConfig.json';
 
 export class Victory extends Command {
 
@@ -10,9 +9,9 @@ export class Victory extends Command {
   }
 
   Execute(): void {
-    const isAri = this.message.author.id === BotConfig.ari;
+    const isAri = this.message.author.id === this.bot.config.ari;
     if(isAri) {
-      this.Reply(':sparkles:  :trophy:  :sparkles:')
+      this.Reply(':sparkles:  :trophy:  :sparkles:');
     }
   }
 }

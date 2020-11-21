@@ -1,6 +1,5 @@
 import { Bot } from '../bot';
 import Discord from 'discord.js';
-import { User } from '../user';
 import { Command } from './command';
 
 export class SetCd extends Command {

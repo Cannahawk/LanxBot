@@ -15,10 +15,11 @@ import { Help } from './commands/help';
 import { PingMe } from './commands/ping-me';
 import { Victory } from './commands/victory';
 import { Reset } from './commands/reset';
+import { Users } from './commands/users';
 
 export interface CommandDefinition {
   [key: string]: {
-    commandClass: typeof Command,
+    command: typeof Command,
     needsRegistration: boolean,
     description: string,
     autoDeleteMessage: boolean
@@ -27,100 +28,106 @@ export interface CommandDefinition {
 
 export const Commands: CommandDefinition = {
   register: {
-    commandClass: Register,
+    command: Register,
     needsRegistration: false,
     description: 'Register yourself so the bot starts recognizing you',
     autoDeleteMessage: true
   },
   unregister: {
-    commandClass: Unregister,
+    command: Unregister,
     needsRegistration: true,
     description: 'Remove yourself from the bot so it stops recongnizing you',
     autoDeleteMessage: true
   },
+  users: {
+    command: Users,
+    needsRegistration: false,
+    description: 'List all current users',
+    autoDeleteMessage: true
+  },
   lanx: {
-    commandClass: Lanx,
+    command: Lanx,
     needsRegistration: true,
     description: 'Use whenever you cast a Phalanx. Indicates all users as lanxed so they may progress a turn',
     autoDeleteMessage: true
   },
   turn: {
-    commandClass: Turn,
+    command: Turn,
     needsRegistration: true,
     description: 'Use whenever you progress a turn',
     autoDeleteMessage: true
   },
   skip: {
-    commandClass: Skip,
+    command: Skip,
     needsRegistration: true,
     description: 'Tell the bot that it should not wait for you to progress the current turn before requesting Phalanx',
     autoDeleteMessage: true
   },
   stuck:  {
-    commandClass: Stuck,
+    command: Stuck,
     needsRegistration: true,
     description: 'Tells the bot to stop waiting for you to progress a turn until you are unstuch or take a turn again',
     autoDeleteMessage: true
   },
   unstuck: {
-    commandClass: Unstuck,
+    command: Unstuck,
     needsRegistration: true,
     description: 'Tells the bot to start waiting for you to progress turns again',
     autoDeleteMessage: true
   },
   status: {
-    commandClass: Status,
+    command: Status,
     needsRegistration: true,
     description: 'Shows who still needs to progress a turn before lanxing again',
     autoDeleteMessage: true
   },
   cd: {
-    commandClass: Cd,
+    command: Cd,
     needsRegistration: true,
     description: 'shows the current Phalanx CDs for all players',
     autoDeleteMessage: true
   },
   setcd: {
-    commandClass: SetCd,
+    command: SetCd,
     needsRegistration: true,
     description: 'Use with a number to set your Phalanx CD to the indicated number',
     autoDeleteMessage: true
   },
   extend: {
-    commandClass: Extend,
+    command: Extend,
     needsRegistration: true,
     description: 'increases current Phalanx CD by 2 turns(Orbital Blackness)',
     autoDeleteMessage: true
   },
   pool: {
-    commandClass: Pool,
+    command: Pool,
     needsRegistration: true,
     description: 'use without an argument to display current summon pool.\n use with a summon name as argument to update the pool',
     autoDeleteMessage: true
   },
   pingme: {
-    commandClass: PingMe,
+    command: PingMe,
     needsRegistration: true,
     description: 'toggle wether you get pinged whenever its your turn to lanx',
     autoDeleteMessage: true
   },
   reset: {
-    commandClass: Reset,
+    command: Reset,
     needsRegistration: true,
     description: 'resets pool and lanx CDs',
     autoDeleteMessage: true
   },
   help: {
-    commandClass: Help,
+    command: Help,
     needsRegistration: false,
     description: 'display this list',
     autoDeleteMessage: true
   },
-  // useless joke command
+  // useless joke command, feel free to uncommment
   // victory: {
   //   command: Victory,
   //   needsRegistration: false,
-  //   description: 'just for Ari'
+  //   description: 'just for Ari',
   //   autoDeleteMessage: true
   // },
-}
+};

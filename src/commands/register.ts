@@ -2,7 +2,6 @@ import { Bot } from '../bot';
 import Discord from 'discord.js';
 import { User } from '../user';
 import { Command } from './command';
-import * as BotConfig from '../../BotConfig.json';
 
 export class Register extends Command {
 
@@ -11,7 +10,7 @@ export class Register extends Command {
   }
 
   Execute(): void {
-    if(this.bot.users.length < BotConfig.maxUsers) {
+    if(this.bot.users.length < this.bot.config.maxUsers) {
       if(this.bot.users.find(user => user.name === this.message.author.username)) {
         this.Reply('user already added.');
       } else {

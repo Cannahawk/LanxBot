@@ -1,6 +1,5 @@
 import { Bot } from '../bot';
 import Discord from 'discord.js';
-import { User } from '../user';
 import { Command } from './command';
 
 export class PingMe extends Command {
@@ -13,9 +12,9 @@ export class PingMe extends Command {
       const user = this.GetUser();
       user.togglePingState();
       if(user.getsPinged()) {
-          this.Reply('pings on')
+          this.Reply('pings on');
       } else {
-        this.Reply('pings off')
+        this.Reply('pings off');
       }
   }
 

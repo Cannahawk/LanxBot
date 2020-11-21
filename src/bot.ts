@@ -1,29 +1,31 @@
 import { User } from './user';
-import Discord from 'discord.js'
+import Discord from 'discord.js';
 import { Command } from './commands/command';
 import { Commands } from './commandList';
-
+import { BotConfig } from './botConfig';
 export class Bot {
   users: User[];
   pool: string;
+  config: BotConfig;
 
   constructor() {
     this.users = [];
     this.pool = '';
+    this.config = new BotConfig(process.argv.includes('--dev') ? require('../botConfig.dev.json') : require('../botConfig.json'));
   }
 
   ExecuteCommand(message: Discord.Message): void {
     const commandName = this.GetCommandName(message);
-    const command = Commands[commandName];
+    const commandDefinition = Commands[commandName];
 
-    if(command !== undefined &&
-    (this.IsRegistered(message) || !command.needsRegistration)) {
-      const commandClass = new command.commandClass(this, message)
+    if(commandDefinition !== undefined &&
+    (this.IsRegistered(message) || !commandDefinition.needsRegistration)) {
+      const commandClass = new commandDefinition.command(this, message);
       commandClass.Execute();
-      if(command.autoDeleteMessage) {
+      if(commandDefinition.autoDeleteMessage) {
         commandClass.DeleteCallingMessage();
       }
-    } else if(this.IsRegistered(message) && command === undefined) {
+    } else if(this.IsRegistered(message) && commandDefinition === undefined) {
       new Command(this, message).Execute();
     }
   }
@@ -33,7 +35,7 @@ export class Bot {
     if(firstSpace > -1) {
       return message.content.substring(0, firstSpace);
     } else {
-      return message.content
+      return message.content;
     }
   }
 

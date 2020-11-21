@@ -1,8 +1,8 @@
 {
   "token": "YOUR_TOKEN_HERE",
-  "prefix": "!",
+  "prefix": [".", "!"],
   "maxUsers": 6,
-  "statusMessage": "you die slightly less horribly",
+  "statusMessage": "you die horribly",
   "status": {
     "type": "WATCHING"
   }

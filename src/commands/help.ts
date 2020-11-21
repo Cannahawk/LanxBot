@@ -1,8 +1,7 @@
 import { Command } from './command';
-import { Commands, CommandDefinition } from '../commandList';
+import { Commands } from '../commandList';
 import { Bot } from '../bot';
 import Discord from 'discord.js';
-import * as BotConfig from '../../BotConfig.json';
 
 export class Help extends Command {
   constructor(bot: Bot, message: Discord.Message) {
@@ -13,7 +12,7 @@ export class Help extends Command {
     let commandList = '';
 
     Object.entries(Commands).forEach(([commandName, command]) => {
-      commandList += '**' + BotConfig.prefix + commandName + '**: ' + command.description + '\n';
+      commandList += '**' + this.bot.config.prefix + commandName + '**: ' + command.description + '\n';
     });
 
     this.Reply(commandList);

@@ -11,19 +11,23 @@ export class Command {
 
   constructor(bot: Bot, message: Discord.Message ) {
     this.message = message;
-    this.bot = bot
+    this.bot = bot;
 
-    this.ParseMessage()
+    this.ParseMessage();
   }
 
   Execute(): void {
     this.Reply('unrecognized Command');
   }
 
+  DeleteCallingMessage(): void {
+    this.message.delete();
+  }
+
   private ParseMessage(): void {
     const firstSpace = this.message.content.indexOf(' ');
     if(firstSpace > -1) {
-      this.command = this.message.content.substring(0, firstSpace)
+      this.command = this.message.content.substring(0, firstSpace);
       this.argument = this.message.content.substring(firstSpace + 1);
       this.argumentNumber = +this.argument;
     } else {
@@ -31,15 +35,15 @@ export class Command {
     }
   }
 
-  GetUser(): User {
+  protected GetUser(): User {
     return this.bot.users.find((user) => user.id === this.message.author.id);
   }
 
-  Reply(message: string): void {
+  protected Reply(message: string): void {
     this.message.channel.send(message);
   }
 
-  GetUsernames(): string {
+  protected GetUsernames(): string {
     let userlist = '';
 
     this.bot.users.forEach(user => {
@@ -49,10 +53,10 @@ export class Command {
     return userlist;
   }
 
-  CheckForLanx(): void  {
+  protected CheckForLanx(): void  {
     let usersNotYetReady = '';
     this.bot.users.forEach(user => {
-      usersNotYetReady += user.IsWaitingForLanx() ? '' : user.name + ' '
+      usersNotYetReady += user.IsWaitingForLanx() ? '' : user.name + ' ';
     });
     if(usersNotYetReady === '') {
       this.Reply('all users ready for lanx\n' +
@@ -62,24 +66,22 @@ export class Command {
     }
     let stuckUsers = '';
     this.bot.users.forEach(user => {
-      stuckUsers += user.isSkipping ? user.name + ' ' : ''
+      stuckUsers += user.isSkipping ? user.name + ' ' : '';
     });
     if(stuckUsers) {
       this.Reply('stuck: ' + stuckUsers);
     }
   }
 
-  GetNextLanxUser(): string {
+  protected GetNextLanxUser(): string {
     const nextUser = this.bot.users.find(user => user.lanxCd === 0);
     if(nextUser !== undefined) {
-      return 'Next Lanx from: ' + (nextUser.getsPinged() ? 
+      return 'Next Lanx from: ' + (nextUser.getsPinged() ?
         ('<@' + nextUser.id + '>') : nextUser.name);
     } else {
       return 'all lanxes on cd.';
     }
   }
 
-  DeleteCallingMessage(): void {
-    this.message.delete();
-  }
+
 }
