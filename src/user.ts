@@ -16,7 +16,7 @@ export class User {
   lanxCd: number;
   isLanxed: boolean;
   isSkipping: boolean;
-  private pingState: boolean
+  private pingState: boolean;
 
   Lanx(): void {
     this.lanxCd = 5;

@@ -84,7 +84,7 @@ export const Commands: CommandDefinition = {
   cd: {
     command: Cd,
     needsRegistration: true,
-    description: 'shows the current Phalanx CDs for all players',
+    description: 'Shows the current Phalanx CDs for all players',
     autoDeleteMessage: true
   },
   setcd: {
@@ -96,38 +96,38 @@ export const Commands: CommandDefinition = {
   extend: {
     command: Extend,
     needsRegistration: true,
-    description: 'increases current Phalanx CD by 2 turns(Orbital Blackness)',
+    description: 'Increases current Phalanx CD by 2 turns(Orbital Blackness)',
     autoDeleteMessage: true
   },
   pool: {
     command: Pool,
     needsRegistration: true,
-    description: 'use without an argument to display current summon pool.\n use with a summon name as argument to update the pool',
+    description: 'Use without an argument to display current summon pool.\n use with a summon name as argument to update the pool',
     autoDeleteMessage: true
   },
   pingme: {
     command: PingMe,
     needsRegistration: true,
-    description: 'toggle wether you get pinged whenever its your turn to lanx',
+    description: 'Toggle wether you get pinged whenever its your turn to lanx',
     autoDeleteMessage: true
   },
   reset: {
     command: Reset,
     needsRegistration: true,
-    description: 'resets pool and lanx CDs',
+    description: 'Resets pool and lanx CDs',
     autoDeleteMessage: true
   },
   help: {
     command: Help,
     needsRegistration: false,
-    description: 'display this list',
+    description: 'Display this list',
     autoDeleteMessage: true
   },
   // useless joke command, feel free to uncommment
   // victory: {
   //   command: Victory,
   //   needsRegistration: false,
-  //   description: 'just for Ari',
+  //   description: 'Just for Ari',
   //   autoDeleteMessage: true
   // },
 };

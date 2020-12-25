@@ -82,6 +82,4 @@ export class Command {
       return 'all lanxes on cd.';
     }
   }
-
-
 }

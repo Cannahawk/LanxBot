@@ -17,5 +17,4 @@ export class BotConfig {
     type: 'WATCHING' | 'PLAYING' | 'LISTENING' | 'STREAMING' | 'CUSTOM_STATUS' | number
   };
   ari: string;
-
 }
