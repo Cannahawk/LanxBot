@@ -1,9 +1,10 @@
 # LanxBot
 
-This is a discord bot. It's intended to help players coordinating Phalanxes for GBF raids, specifically Luci Hard.
+This is a discord bot. It's intended to help players coordinating Phalanxes for GBF raids, specifically Luci Hard.  
 
 ## Setup
-Download the latest version of nodejs [here](https://nodejs.org/en/) and install it  
+Windows: Download the latest version of nodejs [here](https://nodejs.org/en/) and install it.  
+Linux: install nodejs and npm with your package manager of choice.  
 
 open a CLI and type the following while in the projects directory:  
 `npm i` to install all dependencies  
@@ -34,7 +35,7 @@ The Bot will be running and listen to inputs.
 
 ## Config
 the BotConfig.json has a few options:  
-**prefix**: change the prefix used for every command(e.g. !help becomes $help instead)  
+**prefix**: change the prefix used for every command(e.g. !help becomes $help instead). You can define multiple possible prefixes.  
 **maxUsers**: the maximal amount of users to be registered at once  
 **statusMessage**: simply the activity of the bot that will be displayed in the member list. Set to null to not display any.  
 **status**: options are only null, "WATCHING", "PLAYING", "STREAMING", "LISTENING". Anything else will crash the bot on startup. Sets the activity type for the status message. Set to null to not display any.
